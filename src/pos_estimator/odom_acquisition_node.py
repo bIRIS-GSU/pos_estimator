@@ -10,6 +10,7 @@
 # or odom_eval_data, respectively
 
 import rospy
+import tf
 
 # Import our custom messages
 
