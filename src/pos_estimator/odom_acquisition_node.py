@@ -3,7 +3,7 @@
 # Description:
 #
 # Topics acquire_train_data and acquire_eval_data are calls to action. 
-# When these topics are published to by the odom_acquisition_node, this
+# When these topics are published to by the location_checker_node, this
 # node acquires the next data published to the odometry topic, and if 
 # acquiring training data, also the next data published to the 
 # current_location topic. Then, it publishes its data to odom_train_data
