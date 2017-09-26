@@ -117,7 +117,7 @@ def odom_acquisition_node():
     rospy.Subscriber('odom', Odometry, callback_odom)
 
     odom_eval_data_publisher = rospy.Publisher('odom_eval_data', OdomEvalData, queue_size=10)
-    odom_train_data_publisher = rospy.Publisher('odom_train_data', OdomTrainData, queue_size(10)
+    odom_train_data_publisher = rospy.Publisher('odom_train_data', OdomTrainData, queue_size=10)
 
 
     while not rospy.is_shutdown():
