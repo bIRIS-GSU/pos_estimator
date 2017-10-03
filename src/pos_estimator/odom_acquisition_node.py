@@ -28,17 +28,17 @@ odom_train_data_publisher = rospy.Publisher('odom_train_data', OdomTrainData, qu
 
 def callback_acquire_train_data(msg):
     # Do stuff when told to acquire training data
-	odom_train_data = OdomTrainData()
-	odom_train_data.odom_pose = odom_location.odom_pose
-	odom_train_data.estimated_pose = current_location.pose
+    odom_train_data = OdomTrainData()
+    odom_train_data.odom_pose = odom_location.odom_pose
+    odom_train_data.estimated_pose = current_location.pose
     global odom_train_data_publisher
-	odom_train_data_publisher.publish(odom_train_data)
+    odom_train_data_publisher.publish(odom_train_data)
 
 
 def callback_acquire_eval_data(msg):
     # Do stuff when told to acquire evaluation data
     global odom_eval_data_publisher
-	odom_eval_data_publisher.publish(odom_location)
+    odom_eval_data_publisher.publish(odom_location)
 
 
 def callback_current_location(msg):
@@ -49,13 +49,13 @@ def callback_odom(msg):
     # Do stuff when new odometry data
     global odom_location
 
-	# Calculate theta from the odometry quaternion
-	euler = tf.transformations.euler_from_quaternion(msg.pose.quaternion)
-	odom_location.odom_pose.theta = euler[2]
+    # Calculate theta from the odometry quaternion
+    euler = tf.transformations.euler_from_quaternion(msg.pose.quaternion)
+    odom_location.odom_pose.theta = euler[2]
 
-	# Copy x and y from the odometry pose into our EstimatedPose
-	odom_location.odom_pose.x = msg.pose.pose.position.x
-	odom_location.odom_pose.y = msg.pose.pose.position.y
+    # Copy x and y from the odometry pose into our EstimatedPose
+    odom_location.odom_pose.x = msg.pose.pose.position.x
+    odom_location.odom_pose.y = msg.pose.pose.position.y
 
             
 
